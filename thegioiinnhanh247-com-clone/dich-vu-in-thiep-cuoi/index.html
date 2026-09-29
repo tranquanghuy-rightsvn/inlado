@@ -129,30 +129,30 @@
 
   <section class="shop-section">
     <div class="container">
+      <p class="shop-intro">Thiệp cưới tại In Lá Đỏ được thực hiện trên đa dạng chất liệu như giấy mỹ thuật, giấy dó, giấy ánh kim, form cứng ép nhũ,... đáp ứng nhiều phong cách từ tối giản, hiện đại đến sang trọng, cổ điển. Mỗi mẫu thiệp đều được thiết kế tỉ mỉ, có thể tùy chỉnh riêng theo yêu cầu hoặc chọn từ kho mẫu có sẵn, đảm bảo màu sắc chuẩn, bản in sắc nét và giao hàng đúng hẹn cho ngày trọng đại của bạn.</p>
       <div class="shop-layout">
         <aside class="filter-sidebar">
           <div class="filter-box">
             <div class="filter-box-title">Mẫu thiệp</div>
             <label class="checkbox-item"><input type="checkbox" name="loai" value="thiet-ke" checked> Hàng thiết kế riêng</label>
             <label class="checkbox-item"><input type="checkbox" name="loai" value="co-san" checked> Hàng có sẵn</label>
+            <label class="checkbox-item"><input type="checkbox" name="loai" value="cao-cap" checked> Thiệp cao cấp</label>
+          </div>
+          <div class="filter-box">
+            <div class="filter-box-title">Bao bì</div>
+            <label class="checkbox-item"><input type="checkbox" name="bi" value="co" checked> Có bì</label>
+            <label class="checkbox-item"><input type="checkbox" name="bi" value="khong" checked> Không bì</label>
           </div>
           <div class="filter-box">
             <div class="filter-box-title">Mức giá (đ/thiệp)</div>
-            <div class="price-range">
-              <div class="range-track"><div class="range-fill" id="rangeFill"></div></div>
-              <input type="range" id="priceMin" min="3000" max="20000" step="500" value="3000" aria-label="Giá thấp nhất">
-              <input type="range" id="priceMax" min="3000" max="20000" step="500" value="20000" aria-label="Giá cao nhất">
-              <div class="range-values"><span id="priceMinLabel">3.000đ</span><span id="priceMaxLabel">20.000đ</span></div>
-            </div>
+            <label class="checkbox-item"><input type="checkbox" name="gia" value="1-2" checked> 1.000đ - 2.000đ</label>
+            <label class="checkbox-item"><input type="checkbox" name="gia" value="2-3" checked> 2.000đ - 3.000đ</label>
+            <label class="checkbox-item"><input type="checkbox" name="gia" value="tren-3" checked> Trên 3.000đ</label>
             <button type="button" class="filter-reset" id="filterReset">Đặt lại bộ lọc</button>
           </div>
         </aside>
 
         <div class="shop-main">
-          <div class="tabs" role="tablist">
-            <button type="button" class="tab-btn is-active" data-bi="co">Có bì</button>
-            <button type="button" class="tab-btn" data-bi="khong">Không bì</button>
-          </div>
           <p class="shop-meta" id="shopMeta"></p>
           <div class="thiep-grid product-grid" id="thiepGrid"></div>
           <p class="shop-empty" id="shopEmpty">Không tìm thấy mẫu thiệp phù hợp với bộ lọc đã chọn. Vui lòng thử điều chỉnh lại bộ lọc.</p>
@@ -235,7 +235,7 @@
     { id: "tc04", name: "Thiệp cưới Tối Giản",     img: "../images/products/thiep-09.jpg",         price: 6000,  loai: "co-san",   bi: "co" },
     { id: "tc05", name: "Thiệp cưới Vintage",      img: "../images/products/thiep-10.jpg",         price: 12000, loai: "thiet-ke", bi: "khong" },
     { id: "tc06", name: "Thiệp cưới Hoa Cưới",     img: "../images/products/thiep-02.jpg",         price: 7000,  loai: "co-san",   bi: "co" },
-    { id: "tc07", name: "Thiệp cưới Ánh Kim",      img: "../images/products/thiep-07.jpg",         price: 18000, loai: "thiet-ke", bi: "co" },
+    { id: "tc07", name: "Thiệp cưới Ánh Kim",      img: "../images/products/thiep-07.jpg",         price: 18000, loai: "cao-cap", bi: "co" },
     { id: "tc08", name: "Thiệp cưới Pastel",       img: "../images/products/thiep-01.jpg",         price: 4000,  loai: "co-san",   bi: "khong" },
     { id: "tc09", name: "Thiệp cưới Cổ Điển",      img: "../images/products/thiep-04.jpg",         price: 10000, loai: "thiet-ke", bi: "co" },
     { id: "tc10", name: "Thiệp cưới Đơn Giản",     img: "../images/products/thiep-05.jpg",         price: 3500,  loai: "co-san",   bi: "co" },
@@ -244,15 +244,15 @@
     { id: "tc13", name: "Thiệp cưới Hoa Sen", img: "../images/products/thiep-13.jpg", price: 6000, loai: "co-san", bi: "co" },
     { id: "tc14", name: "Thiệp cưới Hoa Ly", img: "../images/products/thiep-14.jpg", price: 8500, loai: "thiet-ke", bi: "co" },
     { id: "tc15", name: "Thiệp cưới Hoa Cúc", img: "../images/products/thiep-15.jpg", price: 12000, loai: "co-san", bi: "khong" },
-    { id: "tc16", name: "Thiệp cưới Hoa Đào", img: "../images/products/thiep-16.jpg", price: 20000, loai: "thiet-ke", bi: "co" },
+    { id: "tc16", name: "Thiệp cưới Hoa Đào", img: "../images/products/thiep-16.jpg", price: 20000, loai: "cao-cap", bi: "co" },
     { id: "tc17", name: "Thiệp cưới Hoa Mai", img: "../images/products/thiep-17.jpg", price: 5500, loai: "co-san", bi: "co" },
     { id: "tc18", name: "Thiệp cưới Hoàng Gia", img: "../images/products/thiep-18.jpg", price: 8000, loai: "thiet-ke", bi: "khong" },
     { id: "tc19", name: "Thiệp cưới Thanh Lịch", img: "../images/products/thiep-19.jpg", price: 11000, loai: "co-san", bi: "co" },
-    { id: "tc20", name: "Thiệp cưới Duyên Dáng", img: "../images/products/thiep-20.jpg", price: 18500, loai: "thiet-ke", bi: "co" },
+    { id: "tc20", name: "Thiệp cưới Duyên Dáng", img: "../images/products/thiep-20.jpg", price: 18500, loai: "cao-cap", bi: "co" },
     { id: "tc21", name: "Thiệp cưới Mộc Mạc", img: "../images/products/thiep-21.jpg", price: 5000, loai: "co-san", bi: "khong" },
     { id: "tc22", name: "Thiệp cưới Lãng Mạn", img: "../images/products/thiep-22.jpg", price: 7500, loai: "thiet-ke", bi: "co" },
     { id: "tc23", name: "Thiệp cưới Rustic", img: "../images/products/thiep-23.jpg", price: 10000, loai: "co-san", bi: "co" },
-    { id: "tc24", name: "Thiệp cưới Bohemian", img: "../images/products/thiep-24.jpg", price: 17000, loai: "thiet-ke", bi: "khong" },
+    { id: "tc24", name: "Thiệp cưới Bohemian", img: "../images/products/thiep-24.jpg", price: 17000, loai: "cao-cap", bi: "khong" },
     { id: "tc25", name: "Thiệp cưới Phong Cách Hàn", img: "../images/products/thiep-25.jpg", price: 4500, loai: "co-san", bi: "co" },
     { id: "tc26", name: "Thiệp cưới Phong Cách Trung Hoa", img: "../images/products/thiep-26.jpg", price: 7000, loai: "thiet-ke", bi: "co" },
     { id: "tc27", name: "Thiệp cưới Đơn Sắc", img: "../images/products/thiep-27.jpg", price: 9500, loai: "co-san", bi: "khong" },
@@ -265,15 +265,15 @@
     { id: "tc34", name: "Thiệp cưới Đông Ấm", img: "../images/products/thiep-34.jpg", price: 6000, loai: "thiet-ke", bi: "co" },
     { id: "tc35", name: "Thiệp cưới Hạ Xanh", img: "../images/products/thiep-35.jpg", price: 8500, loai: "co-san", bi: "co" },
     { id: "tc36", name: "Thiệp cưới Kim Cương", img: "../images/products/thiep-36.jpg", price: 12000, loai: "thiet-ke", bi: "khong" },
-    { id: "tc37", name: "Thiệp cưới Lụa Là", img: "../images/products/thiep-37.jpg", price: 20000, loai: "co-san", bi: "co" },
+    { id: "tc37", name: "Thiệp cưới Lụa Là", img: "../images/products/thiep-37.jpg", price: 20000, loai: "cao-cap", bi: "co" },
     { id: "tc38", name: "Thiệp cưới Nhung Đỏ", img: "../images/products/thiep-38.jpg", price: 5500, loai: "thiet-ke", bi: "co" },
     { id: "tc39", name: "Thiệp cưới Sen Hồng", img: "../images/products/thiep-39.jpg", price: 8000, loai: "co-san", bi: "khong" },
     { id: "tc40", name: "Thiệp cưới Cẩm Tú", img: "../images/products/thiep-40.jpg", price: 11000, loai: "thiet-ke", bi: "co" },
-    { id: "tc41", name: "Thiệp cưới Ngọc Lan", img: "../images/products/thiep-41.jpg", price: 18500, loai: "co-san", bi: "co" },
+    { id: "tc41", name: "Thiệp cưới Ngọc Lan", img: "../images/products/thiep-41.jpg", price: 18500, loai: "cao-cap", bi: "co" },
     { id: "tc42", name: "Thiệp cưới Tường Vi", img: "../images/products/thiep-42.jpg", price: 5000, loai: "thiet-ke", bi: "khong" },
     { id: "tc43", name: "Thiệp cưới Bách Hợp", img: "../images/products/thiep-43.jpg", price: 7500, loai: "co-san", bi: "co" },
     { id: "tc44", name: "Thiệp cưới Dạ Lan", img: "../images/products/thiep-44.jpg", price: 10000, loai: "thiet-ke", bi: "co" },
-    { id: "tc45", name: "Thiệp cưới Quỳnh Hương", img: "../images/products/thiep-45.jpg", price: 17000, loai: "co-san", bi: "khong" },
+    { id: "tc45", name: "Thiệp cưới Quỳnh Hương", img: "../images/products/thiep-45.jpg", price: 17000, loai: "cao-cap", bi: "khong" },
     { id: "tc46", name: "Thiệp cưới Uyên Ương", img: "../images/products/thiep-46.jpg", price: 4500, loai: "thiet-ke", bi: "co" },
     { id: "tc47", name: "Thiệp cưới Song Hỷ", img: "../images/products/thiep-47.jpg", price: 7000, loai: "co-san", bi: "co" },
     { id: "tc48", name: "Thiệp cưới Trăm Năm", img: "../images/products/thiep-48.jpg", price: 9500, loai: "thiet-ke", bi: "khong" },
@@ -286,15 +286,15 @@
     { id: "tc55", name: "Thiệp cưới Giao Duyên", img: "../images/products/thiep-55.jpg", price: 6000, loai: "co-san", bi: "co" },
     { id: "tc56", name: "Thiệp cưới Nhân Duyên", img: "../images/products/thiep-56.jpg", price: 8500, loai: "thiet-ke", bi: "co" },
     { id: "tc57", name: "Thiệp cưới Se Duyên", img: "../images/products/thiep-57.jpg", price: 12000, loai: "co-san", bi: "khong" },
-    { id: "tc58", name: "Thiệp cưới Đính Ước", img: "../images/products/thiep-58.jpg", price: 20000, loai: "thiet-ke", bi: "co" },
+    { id: "tc58", name: "Thiệp cưới Đính Ước", img: "../images/products/thiep-58.jpg", price: 20000, loai: "cao-cap", bi: "co" },
     { id: "tc59", name: "Thiệp cưới Hò Hẹn", img: "../images/products/thiep-59.jpg", price: 5500, loai: "co-san", bi: "co" },
     { id: "tc60", name: "Thiệp cưới Ngày Vui", img: "../images/products/thiep-60.jpg", price: 8000, loai: "thiet-ke", bi: "khong" },
     { id: "tc61", name: "Thiệp cưới Lễ Đường", img: "../images/products/thiep-61.jpg", price: 11000, loai: "co-san", bi: "co" },
-    { id: "tc62", name: "Thiệp cưới Tân Hôn", img: "../images/products/thiep-62.jpg", price: 18500, loai: "thiet-ke", bi: "co" },
+    { id: "tc62", name: "Thiệp cưới Tân Hôn", img: "../images/products/thiep-62.jpg", price: 18500, loai: "cao-cap", bi: "co" },
     { id: "tc63", name: "Thiệp cưới Vu Quy", img: "../images/products/thiep-63.jpg", price: 5000, loai: "co-san", bi: "khong" },
     { id: "tc64", name: "Thiệp cưới Loan Phượng", img: "../images/products/thiep-64.jpg", price: 7500, loai: "thiet-ke", bi: "co" },
     { id: "tc65", name: "Thiệp cưới Phu Thê", img: "../images/products/thiep-65.jpg", price: 10000, loai: "co-san", bi: "co" },
-    { id: "tc66", name: "Thiệp cưới Kim Chi", img: "../images/products/thiep-66.jpg", price: 17000, loai: "thiet-ke", bi: "khong" },
+    { id: "tc66", name: "Thiệp cưới Kim Chi", img: "../images/products/thiep-66.jpg", price: 17000, loai: "cao-cap", bi: "khong" },
     { id: "tc67", name: "Thiệp cưới Ngọc Diệp", img: "../images/products/thiep-67.jpg", price: 4500, loai: "co-san", bi: "co" },
     { id: "tc68", name: "Thiệp cưới Hồng Diệp", img: "../images/products/thiep-68.jpg", price: 7000, loai: "thiet-ke", bi: "co" },
     { id: "tc69", name: "Thiệp cưới Xuân Thì", img: "../images/products/thiep-69.jpg", price: 9500, loai: "co-san", bi: "khong" },
@@ -307,95 +307,78 @@
     { id: "tc76", name: "Thiệp cưới Thiên Duyên", img: "../images/products/thiep-76.jpg", price: 6000, loai: "thiet-ke", bi: "co" },
     { id: "tc77", name: "Thiệp cưới Việt Cổ", img: "../images/products/thiep-77.jpg", price: 8500, loai: "co-san", bi: "co" },
     { id: "tc78", name: "Thiệp cưới Á Đông", img: "../images/products/thiep-78.jpg", price: 12000, loai: "thiet-ke", bi: "khong" },
-    { id: "tc79", name: "Thiệp cưới Châu Âu", img: "../images/products/thiep-79.jpg", price: 20000, loai: "co-san", bi: "co" },
+    { id: "tc79", name: "Thiệp cưới Châu Âu", img: "../images/products/thiep-79.jpg", price: 20000, loai: "cao-cap", bi: "co" },
     { id: "tc80", name: "Thiệp cưới Ngọc Bích", img: "../images/products/thiep-80.jpg", price: 5500, loai: "thiet-ke", bi: "co" },
     { id: "tc81", name: "Thiệp cưới Hoa Hồng Đỏ", img: "../images/products/thiep-81.jpg", price: 8000, loai: "co-san", bi: "khong" },
     { id: "tc82", name: "Thiệp cưới Bạch Kim", img: "../images/products/thiep-82.jpg", price: 11000, loai: "thiet-ke", bi: "co" },
-    { id: "tc83", name: "Thiệp cưới Trầm Ấm", img: "../images/products/thiep-83.jpg", price: 18500, loai: "co-san", bi: "co" },
+    { id: "tc83", name: "Thiệp cưới Trầm Ấm", img: "../images/products/thiep-83.jpg", price: 18500, loai: "cao-cap", bi: "co" },
     { id: "tc84", name: "Thiệp cưới Tinh Khôi", img: "../images/products/thiep-84.jpg", price: 5000, loai: "thiet-ke", bi: "khong" },
     { id: "tc85", name: "Thiệp cưới Diễm Lệ", img: "../images/products/thiep-85.jpg", price: 7500, loai: "co-san", bi: "co" },
     { id: "tc86", name: "Thiệp cưới Hồng Nhung", img: "../images/products/thiep-86.jpg", price: 10000, loai: "thiet-ke", bi: "co" },
-    { id: "tc87", name: "Thiệp cưới Yêu Thương", img: "../images/products/thiep-87.jpg", price: 17000, loai: "co-san", bi: "khong" },
+    { id: "tc87", name: "Thiệp cưới Yêu Thương", img: "../images/products/thiep-87.jpg", price: 17000, loai: "cao-cap", bi: "khong" },
     { id: "tc88", name: "Thiệp cưới Trọn Đời", img: "../images/products/thiep-88.jpg", price: 4500, loai: "thiet-ke", bi: "co" },
     { id: "tc89", name: "Thiệp cưới Về Chung Nhà", img: "../images/products/thiep-89.jpg", price: 7000, loai: "co-san", bi: "co" },
     { id: "tc90", name: "Thiệp cưới Kim Ngân", img: "../images/products/thiep-90.jpg", price: 9500, loai: "thiet-ke", bi: "khong" },
     { id: "tc91", name: "Thiệp cưới Thắm Duyên", img: "../images/products/thiep-91.jpg", price: 15000, loai: "co-san", bi: "co" }
   ];
 
-  var PRICE_MIN = 3000, PRICE_MAX = 20000;
+  var GIA_RANGES = {
+    "1-2": function (price) { return price >= 1000 && price < 2000; },
+    "2-3": function (price) { return price >= 2000 && price < 3000; },
+    "tren-3": function (price) { return price >= 3000; }
+  };
+  var GIA_KEYS = ["1-2", "2-3", "tren-3"];
+  var BI_KEYS = ["co", "khong"];
 
   var grid = document.getElementById("thiepGrid");
   var meta = document.getElementById("shopMeta");
   var empty = document.getElementById("shopEmpty");
-  var tabs = document.querySelectorAll(".tab-btn");
   var checkboxes = document.querySelectorAll(".checkbox-item input[name='loai']");
-  var priceMinInput = document.getElementById("priceMin");
-  var priceMaxInput = document.getElementById("priceMax");
-  var priceMinLabel = document.getElementById("priceMinLabel");
-  var priceMaxLabel = document.getElementById("priceMaxLabel");
-  var rangeFill = document.getElementById("rangeFill");
+  var biCheckboxes = document.querySelectorAll(".checkbox-item input[name='bi']");
+  var giaCheckboxes = document.querySelectorAll(".checkbox-item input[name='gia']");
   var resetBtn = document.getElementById("filterReset");
 
   function formatPrice(n) { return n.toLocaleString("vi-VN") + "đ"; }
 
   function readStateFromURL() {
     var params = new URLSearchParams(window.location.search);
-    var bi = params.get("bi") === "khong" ? "khong" : "co";
+    var biParam = params.get("bi");
+    var bi = biParam ? biParam.split(",").filter(Boolean) : BI_KEYS.slice();
     var loaiParam = params.get("loai");
-    var loai = loaiParam ? loaiParam.split(",").filter(Boolean) : ["thiet-ke", "co-san"];
-    var giaTu = parseInt(params.get("gia_tu"), 10);
-    var giaDen = parseInt(params.get("gia_den"), 10);
-    if (isNaN(giaTu)) giaTu = PRICE_MIN;
-    if (isNaN(giaDen)) giaDen = PRICE_MAX;
-    giaTu = Math.min(Math.max(giaTu, PRICE_MIN), PRICE_MAX);
-    giaDen = Math.min(Math.max(giaDen, PRICE_MIN), PRICE_MAX);
-    if (giaTu > giaDen) { var t = giaTu; giaTu = giaDen; giaDen = t; }
-    return { bi: bi, loai: loai, giaTu: giaTu, giaDen: giaDen };
+    var loai = loaiParam ? loaiParam.split(",").filter(Boolean) : ["thiet-ke", "co-san", "cao-cap"];
+    var giaParam = params.get("gia");
+    var gia = giaParam ? giaParam.split(",").filter(Boolean) : GIA_KEYS.slice();
+    return { bi: bi, loai: loai, gia: gia };
   }
 
   var state = readStateFromURL();
 
   function applyStateToUI() {
-    tabs.forEach(function (btn) {
-      btn.classList.toggle("is-active", btn.getAttribute("data-bi") === state.bi);
+    biCheckboxes.forEach(function (cb) {
+      cb.checked = state.bi.indexOf(cb.value) !== -1;
     });
     checkboxes.forEach(function (cb) {
       cb.checked = state.loai.indexOf(cb.value) !== -1;
     });
-    priceMinInput.value = state.giaTu;
-    priceMaxInput.value = state.giaDen;
-    updateRangeUI();
-  }
-
-  function updateRangeUI() {
-    var min = parseInt(priceMinInput.value, 10);
-    var max = parseInt(priceMaxInput.value, 10);
-    if (min > max) { var t = min; min = max; max = t; }
-    priceMinLabel.textContent = formatPrice(min);
-    priceMaxLabel.textContent = formatPrice(max);
-    var leftPct = ((min - PRICE_MIN) / (PRICE_MAX - PRICE_MIN)) * 100;
-    var rightPct = ((max - PRICE_MIN) / (PRICE_MAX - PRICE_MIN)) * 100;
-    rangeFill.style.left = leftPct + "%";
-    rangeFill.style.width = (rightPct - leftPct) + "%";
+    giaCheckboxes.forEach(function (cb) {
+      cb.checked = state.gia.indexOf(cb.value) !== -1;
+    });
   }
 
   function updateURL() {
     var params = new URLSearchParams();
-    params.set("bi", state.bi);
+    params.set("bi", state.bi.join(","));
     params.set("loai", state.loai.join(","));
-    params.set("gia_tu", state.giaTu);
-    params.set("gia_den", state.giaDen);
+    params.set("gia", state.gia.join(","));
     var newUrl = window.location.pathname + "?" + params.toString();
     window.history.replaceState(null, "", newUrl);
   }
 
   function render() {
-    var min = Math.min(state.giaTu, state.giaDen);
-    var max = Math.max(state.giaTu, state.giaDen);
     var results = PRODUCTS.filter(function (p) {
-      return p.bi === state.bi &&
+      return state.bi.indexOf(p.bi) !== -1 &&
         state.loai.indexOf(p.loai) !== -1 &&
-        p.price >= min && p.price <= max;
+        state.gia.some(function (key) { return GIA_RANGES[key](p.price); });
     });
 
     grid.innerHTML = results.map(function (p) {
@@ -420,10 +403,9 @@
     render();
   }
 
-  tabs.forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      state.bi = btn.getAttribute("data-bi");
-      applyStateToUI();
+  biCheckboxes.forEach(function (cb) {
+    cb.addEventListener("change", function () {
+      state.bi = Array.prototype.slice.call(biCheckboxes).filter(function (c) { return c.checked; }).map(function (c) { return c.value; });
       onFilterChange();
     });
   });
@@ -435,17 +417,15 @@
     });
   });
 
-  [priceMinInput, priceMaxInput].forEach(function (input) {
-    input.addEventListener("input", function () {
-      state.giaTu = parseInt(priceMinInput.value, 10);
-      state.giaDen = parseInt(priceMaxInput.value, 10);
-      updateRangeUI();
+  giaCheckboxes.forEach(function (cb) {
+    cb.addEventListener("change", function () {
+      state.gia = Array.prototype.slice.call(giaCheckboxes).filter(function (c) { return c.checked; }).map(function (c) { return c.value; });
+      onFilterChange();
     });
-    input.addEventListener("change", onFilterChange);
   });
 
   resetBtn.addEventListener("click", function () {
-    state = { bi: "co", loai: ["thiet-ke", "co-san"], giaTu: PRICE_MIN, giaDen: PRICE_MAX };
+    state = { bi: BI_KEYS.slice(), loai: ["thiet-ke", "co-san", "cao-cap"], gia: GIA_KEYS.slice() };
     applyStateToUI();
     onFilterChange();
   });

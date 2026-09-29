@@ -772,6 +772,29 @@ button { font-family: inherit; cursor: pointer; }
 
 /* ===== Shop / filterable listing page ===== */
 .shop-section { padding: 32px 0 40px; }
+.shop-intro {
+  position: relative;
+  background: linear-gradient(135deg, #FBFBF7 0%, var(--bg-alt) 100%);
+  border: 1px solid var(--border-light);
+  border-left: 4px solid var(--brand-light);
+  border-radius: 10px;
+  padding: 22px 26px 22px 56px;
+  margin: 0 0 28px;
+  font-size: 15px;
+  line-height: 1.75;
+  color: #4a4a4a;
+}
+.shop-intro::before {
+  content: "\201C";
+  position: absolute;
+  top: 6px;
+  left: 18px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 46px;
+  line-height: 1;
+  color: var(--brand-light);
+  opacity: .55;
+}
 .shop-layout { display: grid; grid-template-columns: 260px 1fr; gap: 30px; align-items: start; }
 
 .filter-sidebar { display: flex; flex-direction: column; gap: 20px; }
