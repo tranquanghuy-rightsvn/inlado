@@ -130,34 +130,9 @@
   <section class="shop-section">
     <div class="container">
       <p class="shop-intro">Thẻ nhựa tại In Lá Đỏ được sản xuất trên chất liệu nhựa PVC cao cấp, chống nước, chống trầy xước và có độ bền cao, phù hợp làm thẻ nhân viên, thẻ thành viên, thẻ tích điểm hay thẻ VIP. Mỗi mẫu thẻ đều có thể tùy chỉnh riêng theo yêu cầu hoặc chọn từ kho mẫu có sẵn, đảm bảo màu sắc chuẩn, bản in sắc nét và thể hiện chuyên nghiệp hình ảnh thương hiệu của bạn.</p>
-      <div class="shop-layout">
-        <aside class="filter-sidebar">
-          <div class="filter-box">
-            <div class="filter-box-title">Mẫu thẻ</div>
-            <label class="checkbox-item"><input type="checkbox" name="loai" value="thiet-ke" checked> Hàng thiết kế riêng</label>
-            <label class="checkbox-item"><input type="checkbox" name="loai" value="co-san" checked> Hàng có sẵn</label>
-          </div>
-          <div class="filter-box">
-            <div class="filter-box-title">Mức giá (đ/sản phẩm)</div>
-            <div class="price-range">
-              <div class="range-track"><div class="range-fill" id="rangeFill"></div></div>
-              <input type="range" id="priceMin" min="3000" max="25000" step="500" value="3000" aria-label="Giá thấp nhất">
-              <input type="range" id="priceMax" min="3000" max="25000" step="500" value="25000" aria-label="Giá cao nhất">
-              <div class="range-values"><span id="priceMinLabel"></span><span id="priceMaxLabel"></span></div>
-            </div>
-            <button type="button" class="filter-reset" id="filterReset">Đặt lại bộ lọc</button>
-          </div>
-        </aside>
-
-        <div class="shop-main">
-          <div class="tabs" role="tablist">
-            <button type="button" class="tab-btn is-active" data-tab="doc">Thẻ dọc</button>
-            <button type="button" class="tab-btn" data-tab="ngang">Thẻ ngang</button>
-          </div>
-          <p class="shop-meta" id="shopMeta"></p>
-          <div class="thiep-grid product-grid" id="thiepGrid"></div>
-          <p class="shop-empty" id="shopEmpty">Không tìm thấy mẫu phù hợp với bộ lọc đã chọn. Vui lòng thử điều chỉnh lại bộ lọc.</p>
-        </div>
+      <div class="shop-main">
+        <p class="shop-meta" id="shopMeta"></p>
+        <div class="thiep-grid product-grid grid-4-col" id="thiepGrid"></div>
       </div>
     </div>
   </section>
@@ -229,98 +204,26 @@
 (function () {
   "use strict";
 
-  var TAB_PARAM = "huong";
-  var TAB_DEFAULT = "doc";
-  var PRICE_MIN = 3000, PRICE_MAX = 25000;
-
   var PRODUCTS = [
-    { id: "tn01", name: "Thẻ Gym", img: "../images/products/THE-PHONG-GYM.jpg", price: 8000, loai: "co-san", huong: "doc" },
-    { id: "tn02", name: "Thẻ Vàng Cao Cấp", img: "../images/products/the-cung-vang.webp", price: 18000, loai: "thiet-ke", huong: "ngang" },
-    { id: "tn03", name: "Thẻ VIP", img: "../images/products/the-cung-vip.webp", price: 20000, loai: "thiet-ke", huong: "doc" },
-    { id: "tn04", name: "Thẻ Spa VIP", img: "../images/products/the-vip-spa.webp", price: 15000, loai: "co-san", huong: "ngang" },
-    { id: "tn05", name: "Thẻ Tập Gym Mẫu 2", img: "../images/products/gym.webp", price: 7000, loai: "co-san", huong: "doc" },
-    { id: "tn06", name: "Thẻ Thành Viên", img: "../images/products/t2.webp", price: 6000, loai: "co-san", huong: "ngang" },
-    { id: "tn07", name: "Thẻ Nhựa Mẫu U1", img: "../images/products/u1.webp", price: 12000, loai: "thiet-ke", huong: "doc" },
-    { id: "tn08", name: "Thẻ Nhựa Mẫu U3", img: "../images/products/u3.webp", price: 22000, loai: "thiet-ke", huong: "ngang" },
-    { id: "tn09", name: "Thẻ Nhựa Mẫu U5", img: "../images/products/u5.webp", price: 5000, loai: "co-san", huong: "doc" },
-    { id: "tn10", name: "Thẻ Nhựa Mẫu U6", img: "../images/products/u6.webp", price: 25000, loai: "thiet-ke", huong: "ngang" }
+    { id: "tn01", name: "Thẻ Gym", img: "../images/products/THE-PHONG-GYM.jpg", price: 8000 },
+    { id: "tn02", name: "Thẻ Vàng Cao Cấp", img: "../images/products/the-cung-vang.webp", price: 18000 },
+    { id: "tn03", name: "Thẻ VIP", img: "../images/products/the-cung-vip.webp", price: 20000 },
+    { id: "tn04", name: "Thẻ Spa VIP", img: "../images/products/the-vip-spa.webp", price: 15000 },
+    { id: "tn05", name: "Thẻ Tập Gym Mẫu 2", img: "../images/products/gym.webp", price: 7000 },
+    { id: "tn06", name: "Thẻ Thành Viên", img: "../images/products/t2.webp", price: 6000 },
+    { id: "tn07", name: "Thẻ Nhựa Mẫu U1", img: "../images/products/u1.webp", price: 12000 },
+    { id: "tn08", name: "Thẻ Nhựa Mẫu U3", img: "../images/products/u3.webp", price: 22000 },
+    { id: "tn09", name: "Thẻ Nhựa Mẫu U5", img: "../images/products/u5.webp", price: 5000 },
+    { id: "tn10", name: "Thẻ Nhựa Mẫu U6", img: "../images/products/u6.webp", price: 25000 }
   ];
 
   var grid = document.getElementById("thiepGrid");
   var meta = document.getElementById("shopMeta");
-  var empty = document.getElementById("shopEmpty");
-  var tabs = document.querySelectorAll(".tab-btn");
-  var checkboxes = document.querySelectorAll(".checkbox-item input[name=loai]");
-  var priceMinInput = document.getElementById("priceMin");
-  var priceMaxInput = document.getElementById("priceMax");
-  var priceMinLabel = document.getElementById("priceMinLabel");
-  var priceMaxLabel = document.getElementById("priceMaxLabel");
-  var rangeFill = document.getElementById("rangeFill");
-  var resetBtn = document.getElementById("filterReset");
 
   function formatPrice(n) { return n.toLocaleString("vi-VN") + "đ"; }
 
-  function readStateFromURL() {
-    var params = new URLSearchParams(window.location.search);
-    var tabVal = params.get(TAB_PARAM) || TAB_DEFAULT;
-    var loaiParam = params.get("loai");
-    var loai = loaiParam ? loaiParam.split(",").filter(Boolean) : ["thiet-ke", "co-san"];
-    var giaTu = parseInt(params.get("gia_tu"), 10);
-    var giaDen = parseInt(params.get("gia_den"), 10);
-    if (isNaN(giaTu)) giaTu = PRICE_MIN;
-    if (isNaN(giaDen)) giaDen = PRICE_MAX;
-    giaTu = Math.min(Math.max(giaTu, PRICE_MIN), PRICE_MAX);
-    giaDen = Math.min(Math.max(giaDen, PRICE_MIN), PRICE_MAX);
-    if (giaTu > giaDen) { var t = giaTu; giaTu = giaDen; giaDen = t; }
-    return { tab: tabVal, loai: loai, giaTu: giaTu, giaDen: giaDen };
-  }
-
-  var state = readStateFromURL();
-
-  function applyStateToUI() {
-    tabs.forEach(function (btn) {
-      btn.classList.toggle("is-active", btn.getAttribute("data-tab") === state.tab);
-    });
-    checkboxes.forEach(function (cb) {
-      cb.checked = state.loai.indexOf(cb.value) !== -1;
-    });
-    priceMinInput.value = state.giaTu;
-    priceMaxInput.value = state.giaDen;
-    updateRangeUI();
-  }
-
-  function updateRangeUI() {
-    var min = parseInt(priceMinInput.value, 10);
-    var max = parseInt(priceMaxInput.value, 10);
-    if (min > max) { var t = min; min = max; max = t; }
-    priceMinLabel.textContent = formatPrice(min);
-    priceMaxLabel.textContent = formatPrice(max);
-    var leftPct = ((min - PRICE_MIN) / (PRICE_MAX - PRICE_MIN)) * 100;
-    var rightPct = ((max - PRICE_MIN) / (PRICE_MAX - PRICE_MIN)) * 100;
-    rangeFill.style.left = leftPct + "%";
-    rangeFill.style.width = (rightPct - leftPct) + "%";
-  }
-
-  function updateURL() {
-    var params = new URLSearchParams();
-    params.set(TAB_PARAM, state.tab);
-    params.set("loai", state.loai.join(","));
-    params.set("gia_tu", state.giaTu);
-    params.set("gia_den", state.giaDen);
-    var newUrl = window.location.pathname + "?" + params.toString();
-    window.history.replaceState(null, "", newUrl);
-  }
-
   function render() {
-    var min = Math.min(state.giaTu, state.giaDen);
-    var max = Math.max(state.giaTu, state.giaDen);
-    var results = PRODUCTS.filter(function (p) {
-      return p[TAB_PARAM] === state.tab &&
-        state.loai.indexOf(p.loai) !== -1 &&
-        p.price >= min && p.price <= max;
-    });
-
-    grid.innerHTML = results.map(function (p) {
+    grid.innerHTML = PRODUCTS.map(function (p) {
       return "" +
         "<div class='product-card'>" +
           "<div class='box-image'><img src='" + p.img + "' alt='" + p.name + "' loading='lazy' width='300' height='300'></div>" +
@@ -332,47 +235,9 @@
         "</div>";
     }).join("");
 
-    meta.textContent = "Tìm thấy " + results.length + " mẫu phù hợp";
-    empty.classList.toggle("is-visible", results.length === 0);
-    grid.style.display = results.length === 0 ? "none" : "";
+    meta.textContent = "Tìm thấy " + PRODUCTS.length + " mẫu phù hợp";
   }
 
-  function onFilterChange() {
-    updateURL();
-    render();
-  }
-
-  tabs.forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      state.tab = btn.getAttribute("data-tab");
-      applyStateToUI();
-      onFilterChange();
-    });
-  });
-
-  checkboxes.forEach(function (cb) {
-    cb.addEventListener("change", function () {
-      state.loai = Array.prototype.slice.call(checkboxes).filter(function (c) { return c.checked; }).map(function (c) { return c.value; });
-      onFilterChange();
-    });
-  });
-
-  [priceMinInput, priceMaxInput].forEach(function (input) {
-    input.addEventListener("input", function () {
-      state.giaTu = parseInt(priceMinInput.value, 10);
-      state.giaDen = parseInt(priceMaxInput.value, 10);
-      updateRangeUI();
-    });
-    input.addEventListener("change", onFilterChange);
-  });
-
-  resetBtn.addEventListener("click", function () {
-    state = { tab: TAB_DEFAULT, loai: ["thiet-ke", "co-san"], giaTu: PRICE_MIN, giaDen: PRICE_MAX };
-    applyStateToUI();
-    onFilterChange();
-  });
-
-  applyStateToUI();
   render();
 })();
 </script>

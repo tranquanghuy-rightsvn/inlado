@@ -130,34 +130,9 @@
   <section class="shop-section">
     <div class="container">
       <p class="shop-intro">Mác sản phẩm tại In Lá Đỏ được sản xuất trên đa dạng chất liệu như giấy mỹ thuật, giấy kraft, nhựa PVC, decal chống nước,... phù hợp với nhiều ngành hàng từ thời trang, mỹ phẩm đến thực phẩm. Mỗi mẫu mác đều được thiết kế riêng theo yêu cầu hoặc chọn từ kho mẫu có sẵn, đảm bảo độ bền, bản in sắc nét và thể hiện trọn vẹn thương hiệu của bạn.</p>
-      <div class="shop-layout">
-        <aside class="filter-sidebar">
-          <div class="filter-box">
-            <div class="filter-box-title">Mẫu mác</div>
-            <label class="checkbox-item"><input type="checkbox" name="loai" value="thiet-ke" checked> Hàng thiết kế riêng</label>
-            <label class="checkbox-item"><input type="checkbox" name="loai" value="co-san" checked> Hàng có sẵn</label>
-          </div>
-          <div class="filter-box">
-            <div class="filter-box-title">Mức giá (đ/sản phẩm)</div>
-            <div class="price-range">
-              <div class="range-track"><div class="range-fill" id="rangeFill"></div></div>
-              <input type="range" id="priceMin" min="500" max="5000" step="100" value="500" aria-label="Giá thấp nhất">
-              <input type="range" id="priceMax" min="500" max="5000" step="100" value="5000" aria-label="Giá cao nhất">
-              <div class="range-values"><span id="priceMinLabel"></span><span id="priceMaxLabel"></span></div>
-            </div>
-            <button type="button" class="filter-reset" id="filterReset">Đặt lại bộ lọc</button>
-          </div>
-        </aside>
-
-        <div class="shop-main">
-          <div class="tabs" role="tablist">
-            <button type="button" class="tab-btn is-active" data-tab="giay">Mác giấy</button>
-            <button type="button" class="tab-btn" data-tab="nhua">Mác nhựa</button>
-          </div>
-          <p class="shop-meta" id="shopMeta"></p>
-          <div class="thiep-grid product-grid" id="thiepGrid"></div>
-          <p class="shop-empty" id="shopEmpty">Không tìm thấy mẫu phù hợp với bộ lọc đã chọn. Vui lòng thử điều chỉnh lại bộ lọc.</p>
-        </div>
+      <div class="shop-main">
+        <p class="shop-meta" id="shopMeta"></p>
+        <div class="thiep-grid product-grid grid-4-col" id="thiepGrid"></div>
       </div>
     </div>
   </section>
@@ -229,98 +204,26 @@
 (function () {
   "use strict";
 
-  var TAB_PARAM = "chatlieu";
-  var TAB_DEFAULT = "giay";
-  var PRICE_MIN = 500, PRICE_MAX = 5000;
-
   var PRODUCTS = [
-    { id: "ms01", name: "Mác Hộp Thuốc", img: "../images/products/in-hop-dung-thuoc_2a0569e510814098bbbc7cca659e584c_74cbfea4f6434bb09ada87b2be5eb5da_master-400x400.webp", price: 1500, loai: "thiet-ke", chatlieu: "giay" },
-    { id: "ms02", name: "Mác Chai Lọ", img: "../images/products/chat-lieu-tem-nhan-in-nao-cho-chai-nuoc-chai-lo-ma-ban-can-biet-1-400x400.jpg", price: 1200, loai: "co-san", chatlieu: "nhua" },
-    { id: "ms03", name: "Mác Bánh Kẹo", img: "../images/products/mac-banh-keo-400x400.webp", price: 800, loai: "co-san", chatlieu: "giay" },
-    { id: "ms04", name: "Mác Tem Nhãn Bánh Kẹo", img: "../images/products/anh-sp-in-tem-nhan-banh-keo-400x400.jpg", price: 900, loai: "thiet-ke", chatlieu: "giay" },
-    { id: "ms05", name: "Mác Decal Giấy", img: "../images/products/decal-giay-08-800x800-1.png", price: 700, loai: "co-san", chatlieu: "giay" },
-    { id: "ms06", name: "Mác Decal Giá Rẻ", img: "../images/products/in-decal-dan-gia-re.jpg", price: 600, loai: "co-san", chatlieu: "nhua" },
-    { id: "ms07", name: "Mác Nhãn Hiệu", img: "../images/products/in-decal-nhan-hieu-2.jpg", price: 2500, loai: "thiet-ke", chatlieu: "nhua" },
-    { id: "ms08", name: "Mác Đĩa DVD", img: "../images/products/in-nhan-dvd-gia-re-400x400.jpg", price: 1000, loai: "co-san", chatlieu: "nhua" },
-    { id: "ms09", name: "Mác Cao Cấp", img: "../images/products/in-nhan-dvd-gia-re.jpg", price: 4500, loai: "thiet-ke", chatlieu: "nhua" },
-    { id: "ms10", name: "Mác Sản Phẩm Tiêu Chuẩn", img: "../images/products/2-400x400.png", price: 500, loai: "co-san", chatlieu: "giay" }
+    { id: "ms01", name: "Mác Hộp Thuốc", img: "../images/products/in-hop-dung-thuoc_2a0569e510814098bbbc7cca659e584c_74cbfea4f6434bb09ada87b2be5eb5da_master-400x400.webp", price: 1500 },
+    { id: "ms02", name: "Mác Chai Lọ", img: "../images/products/chat-lieu-tem-nhan-in-nao-cho-chai-nuoc-chai-lo-ma-ban-can-biet-1-400x400.jpg", price: 1200 },
+    { id: "ms03", name: "Mác Bánh Kẹo", img: "../images/products/mac-banh-keo-400x400.webp", price: 800 },
+    { id: "ms04", name: "Mác Tem Nhãn Bánh Kẹo", img: "../images/products/anh-sp-in-tem-nhan-banh-keo-400x400.jpg", price: 900 },
+    { id: "ms05", name: "Mác Decal Giấy", img: "../images/products/decal-giay-08-800x800-1.png", price: 700 },
+    { id: "ms06", name: "Mác Decal Giá Rẻ", img: "../images/products/in-decal-dan-gia-re.jpg", price: 600 },
+    { id: "ms07", name: "Mác Nhãn Hiệu", img: "../images/products/in-decal-nhan-hieu-2.jpg", price: 2500 },
+    { id: "ms08", name: "Mác Đĩa DVD", img: "../images/products/in-nhan-dvd-gia-re-400x400.jpg", price: 1000 },
+    { id: "ms09", name: "Mác Cao Cấp", img: "../images/products/in-nhan-dvd-gia-re.jpg", price: 4500 },
+    { id: "ms10", name: "Mác Sản Phẩm Tiêu Chuẩn", img: "../images/products/2-400x400.png", price: 500 }
   ];
 
   var grid = document.getElementById("thiepGrid");
   var meta = document.getElementById("shopMeta");
-  var empty = document.getElementById("shopEmpty");
-  var tabs = document.querySelectorAll(".tab-btn");
-  var checkboxes = document.querySelectorAll(".checkbox-item input[name=loai]");
-  var priceMinInput = document.getElementById("priceMin");
-  var priceMaxInput = document.getElementById("priceMax");
-  var priceMinLabel = document.getElementById("priceMinLabel");
-  var priceMaxLabel = document.getElementById("priceMaxLabel");
-  var rangeFill = document.getElementById("rangeFill");
-  var resetBtn = document.getElementById("filterReset");
 
   function formatPrice(n) { return n.toLocaleString("vi-VN") + "đ"; }
 
-  function readStateFromURL() {
-    var params = new URLSearchParams(window.location.search);
-    var tabVal = params.get(TAB_PARAM) || TAB_DEFAULT;
-    var loaiParam = params.get("loai");
-    var loai = loaiParam ? loaiParam.split(",").filter(Boolean) : ["thiet-ke", "co-san"];
-    var giaTu = parseInt(params.get("gia_tu"), 10);
-    var giaDen = parseInt(params.get("gia_den"), 10);
-    if (isNaN(giaTu)) giaTu = PRICE_MIN;
-    if (isNaN(giaDen)) giaDen = PRICE_MAX;
-    giaTu = Math.min(Math.max(giaTu, PRICE_MIN), PRICE_MAX);
-    giaDen = Math.min(Math.max(giaDen, PRICE_MIN), PRICE_MAX);
-    if (giaTu > giaDen) { var t = giaTu; giaTu = giaDen; giaDen = t; }
-    return { tab: tabVal, loai: loai, giaTu: giaTu, giaDen: giaDen };
-  }
-
-  var state = readStateFromURL();
-
-  function applyStateToUI() {
-    tabs.forEach(function (btn) {
-      btn.classList.toggle("is-active", btn.getAttribute("data-tab") === state.tab);
-    });
-    checkboxes.forEach(function (cb) {
-      cb.checked = state.loai.indexOf(cb.value) !== -1;
-    });
-    priceMinInput.value = state.giaTu;
-    priceMaxInput.value = state.giaDen;
-    updateRangeUI();
-  }
-
-  function updateRangeUI() {
-    var min = parseInt(priceMinInput.value, 10);
-    var max = parseInt(priceMaxInput.value, 10);
-    if (min > max) { var t = min; min = max; max = t; }
-    priceMinLabel.textContent = formatPrice(min);
-    priceMaxLabel.textContent = formatPrice(max);
-    var leftPct = ((min - PRICE_MIN) / (PRICE_MAX - PRICE_MIN)) * 100;
-    var rightPct = ((max - PRICE_MIN) / (PRICE_MAX - PRICE_MIN)) * 100;
-    rangeFill.style.left = leftPct + "%";
-    rangeFill.style.width = (rightPct - leftPct) + "%";
-  }
-
-  function updateURL() {
-    var params = new URLSearchParams();
-    params.set(TAB_PARAM, state.tab);
-    params.set("loai", state.loai.join(","));
-    params.set("gia_tu", state.giaTu);
-    params.set("gia_den", state.giaDen);
-    var newUrl = window.location.pathname + "?" + params.toString();
-    window.history.replaceState(null, "", newUrl);
-  }
-
   function render() {
-    var min = Math.min(state.giaTu, state.giaDen);
-    var max = Math.max(state.giaTu, state.giaDen);
-    var results = PRODUCTS.filter(function (p) {
-      return p[TAB_PARAM] === state.tab &&
-        state.loai.indexOf(p.loai) !== -1 &&
-        p.price >= min && p.price <= max;
-    });
-
-    grid.innerHTML = results.map(function (p) {
+    grid.innerHTML = PRODUCTS.map(function (p) {
       return "" +
         "<div class='product-card'>" +
           "<div class='box-image'><img src='" + p.img + "' alt='" + p.name + "' loading='lazy' width='300' height='300'></div>" +
@@ -332,47 +235,9 @@
         "</div>";
     }).join("");
 
-    meta.textContent = "Tìm thấy " + results.length + " mẫu phù hợp";
-    empty.classList.toggle("is-visible", results.length === 0);
-    grid.style.display = results.length === 0 ? "none" : "";
+    meta.textContent = "Tìm thấy " + PRODUCTS.length + " mẫu phù hợp";
   }
 
-  function onFilterChange() {
-    updateURL();
-    render();
-  }
-
-  tabs.forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      state.tab = btn.getAttribute("data-tab");
-      applyStateToUI();
-      onFilterChange();
-    });
-  });
-
-  checkboxes.forEach(function (cb) {
-    cb.addEventListener("change", function () {
-      state.loai = Array.prototype.slice.call(checkboxes).filter(function (c) { return c.checked; }).map(function (c) { return c.value; });
-      onFilterChange();
-    });
-  });
-
-  [priceMinInput, priceMaxInput].forEach(function (input) {
-    input.addEventListener("input", function () {
-      state.giaTu = parseInt(priceMinInput.value, 10);
-      state.giaDen = parseInt(priceMaxInput.value, 10);
-      updateRangeUI();
-    });
-    input.addEventListener("change", onFilterChange);
-  });
-
-  resetBtn.addEventListener("click", function () {
-    state = { tab: TAB_DEFAULT, loai: ["thiet-ke", "co-san"], giaTu: PRICE_MIN, giaDen: PRICE_MAX };
-    applyStateToUI();
-    onFilterChange();
-  });
-
-  applyStateToUI();
   render();
 })();
 </script>

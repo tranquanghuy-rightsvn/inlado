@@ -916,6 +916,7 @@ button { font-family: inherit; cursor: pointer; }
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
+.thiep-grid.grid-4-col { grid-template-columns: repeat(4, 1fr); }
 .shop-empty {
   display: none;
   padding: 50px 20px;
@@ -982,6 +983,7 @@ button { font-family: inherit; cursor: pointer; }
   .filter-sidebar { flex-direction: row; flex-wrap: wrap; }
   .filter-box { flex: 1 1 240px; }
   .thiep-grid { grid-template-columns: repeat(3, 1fr); }
+  .thiep-grid.grid-4-col { grid-template-columns: repeat(3, 1fr); }
   .customer-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -1090,6 +1092,7 @@ button { font-family: inherit; cursor: pointer; }
   .footer-grid { grid-template-columns: 1fr; }
   .contact-info-grid { grid-template-columns: 1fr; }
   .thiep-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .thiep-grid.grid-4-col { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .customer-grid { grid-template-columns: 1fr; gap: 14px; }
   .filter-sidebar { flex-direction: column; }
   .page-hero h1 { font-size: 21px; }
