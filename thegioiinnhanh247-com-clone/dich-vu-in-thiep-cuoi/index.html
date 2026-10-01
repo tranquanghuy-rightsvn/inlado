@@ -134,6 +134,8 @@
             <label class="checkbox-item"><input type="checkbox" name="loai" value="thiet-ke" checked> Hàng thiết kế riêng</label>
             <label class="checkbox-item"><input type="checkbox" name="loai" value="co-san" checked> Hàng có sẵn</label>
             <label class="checkbox-item"><input type="checkbox" name="loai" value="cao-cap" checked> Thiệp cao cấp</label>
+            <label class="checkbox-item"><input type="checkbox" name="loai" value="hashtag-cam-tay" checked> Hashtag cầm tay</label>
+            <label class="checkbox-item"><input type="checkbox" name="loai" value="bang-tong-cuoi" checked> Bảng tổng cưới</label>
           </div>
           <div class="filter-box">
             <div class="filter-box-title">Bao bì</div>
@@ -316,7 +318,9 @@
     { id: "tc88", name: "Thiệp cưới Trọn Đời", img: "../images/products/thiep-88.jpg", price: 4500, loai: "thiet-ke", bi: "co", type: "3" },
     { id: "tc89", name: "Thiệp cưới Về Chung Nhà", img: "../images/products/thiep-89.jpg", price: 7000, loai: "co-san", bi: "co", type: "3" },
     { id: "tc90", name: "Thiệp cưới Kim Ngân", img: "../images/products/thiep-90.jpg", price: 9500, loai: "thiet-ke", bi: "khong", type: "3" },
-    { id: "tc91", name: "Thiệp cưới Thắm Duyên", img: "../images/products/thiep-91.jpg", price: 15000, loai: "co-san", bi: "co", type: "3" }
+    { id: "tc91", name: "Thiệp cưới Thắm Duyên", img: "../images/products/thiep-91.jpg", price: 15000, loai: "co-san", bi: "co", type: "3" },
+    { id: "tc92", name: "Hashtag Cầm Tay Hoa Xanh", img: "../images/new/611817609_1199625385624727_3938819735393448066_n.jpg", price: 25000, loai: "hashtag-cam-tay", bi: "khong", type: "3" },
+    { id: "tc93", name: "Bảng Tổng Cưới Hoa Sen", img: "../images/new/612533524_1199629432290989_4080697398727079958_n.jpg", price: 180000, loai: "bang-tong-cuoi", bi: "khong", type: "3" }
   ];
 
   var GIA_KEYS = ["1", "2", "3"];
@@ -336,7 +340,7 @@
     var biParam = params.get("bi");
     var bi = biParam ? biParam.split(",").filter(Boolean) : BI_KEYS.slice();
     var loaiParam = params.get("loai");
-    var loai = loaiParam ? loaiParam.split(",").filter(Boolean) : ["thiet-ke", "co-san", "cao-cap"];
+    var loai = loaiParam ? loaiParam.split(",").filter(Boolean) : ["thiet-ke", "co-san", "cao-cap", "hashtag-cam-tay", "bang-tong-cuoi"];
     var giaParam = params.get("gia");
     var gia = giaParam ? giaParam.split(",").filter(Boolean) : GIA_KEYS.slice();
     return { bi: bi, loai: loai, gia: gia };
@@ -416,7 +420,7 @@
   });
 
   resetBtn.addEventListener("click", function () {
-    state = { bi: BI_KEYS.slice(), loai: ["thiet-ke", "co-san", "cao-cap"], gia: GIA_KEYS.slice() };
+    state = { bi: BI_KEYS.slice(), loai: ["thiet-ke", "co-san", "cao-cap", "hashtag-cam-tay", "bang-tong-cuoi"], gia: GIA_KEYS.slice() };
     applyStateToUI();
     onFilterChange();
   });
