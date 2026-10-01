@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dịch Vụ In Mác Sản Phẩm - CÔNG TY IN LÁ ĐỎ</title>
-<meta name="description" content="Dịch vụ in mác sản phẩm tại In Lá Đỏ - mác giấy, mác nhựa, đa dạng mẫu thiết kế, giá tốt tại Đà Nẵng.">
+<title>Dịch Vụ In Bao Thư - CÔNG TY IN LÁ ĐỎ</title>
+<meta name="description" content="Dịch vụ in bao thư tại In Lá Đỏ - đa dạng kích thước, chất liệu giấy, in logo thương hiệu, giá tốt tại Đà Nẵng.">
 <link rel="icon" href="../images/favicon/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
@@ -58,7 +58,7 @@
         <li><a href="../index.html">Trang chủ</a></li>
         <li><a href="../gioi-thieu/">Giới thiệu</a></li>
         <li><a href="../dich-vu-in-thiep-cuoi/">Thiệp cưới</a></li>
-        <li class="active"><a href="./">Mác sản phẩm</a></li>
+        <li><a href="../dich-vu-in-mac-san-pham/">Mác sản phẩm</a></li>
         <li><a href="../dich-vu-in-the-nhua/">Thẻ nhựa</a></li>
         <li><a href="../dich-vu-in-bao-li-xi/">Bao lì xì</a></li>
         <li><a href="../index.html">Ấn phẩm khác<i class="caret" aria-hidden="true"></i></a>
@@ -119,14 +119,14 @@
 <main>
   <div class="page-hero">
     <div class="container">
-      <h1>Dịch vụ in mác sản phẩm</h1>
-      <div class="breadcrumb"><a href="../index.html">Trang chủ</a><span>/</span>Dịch vụ in mác sản phẩm</div>
+      <h1>Dịch vụ in bao thư</h1>
+      <div class="breadcrumb"><a href="../index.html">Trang chủ</a><span>/</span>Dịch vụ in bao thư</div>
     </div>
   </div>
 
   <section class="shop-section">
     <div class="container">
-      <p class="shop-intro">Mác sản phẩm tại In Lá Đỏ được sản xuất trên đa dạng chất liệu như giấy mỹ thuật, giấy kraft, nhựa PVC, decal chống nước,... phù hợp với nhiều ngành hàng từ thời trang, mỹ phẩm đến thực phẩm. Mỗi mẫu mác đều được thiết kế riêng theo yêu cầu hoặc chọn từ kho mẫu có sẵn, đảm bảo độ bền, bản in sắc nét và thể hiện trọn vẹn thương hiệu của bạn.</p>
+      <p class="shop-intro">Bao thư tại In Lá Đỏ được in sắc nét trên nhiều chất liệu giấy, đáp ứng nhu cầu văn phòng, hành chính và nhận diện thương hiệu. Khách hàng có thể lựa chọn kích thước, loại giấy và in logo công ty theo yêu cầu, đảm bảo chuyên nghiệp và tiết kiệm chi phí.</p>
       <div class="shop-main">
         <p class="shop-meta" id="shopMeta"></p>
         <div class="thiep-grid product-grid grid-4-col" id="thiepGrid"></div>
@@ -202,16 +202,8 @@
   "use strict";
 
   var PRODUCTS = [
-    { id: "ms01", name: "Mác Hộp Thuốc", img: "../images/products/in-hop-dung-thuoc_2a0569e510814098bbbc7cca659e584c_74cbfea4f6434bb09ada87b2be5eb5da_master-400x400.webp", price: 1500 },
-    { id: "ms02", name: "Mác Chai Lọ", img: "../images/products/chat-lieu-tem-nhan-in-nao-cho-chai-nuoc-chai-lo-ma-ban-can-biet-1-400x400.jpg", price: 1200 },
-    { id: "ms03", name: "Mác Bánh Kẹo", img: "../images/products/mac-banh-keo-400x400.webp", price: 800 },
-    { id: "ms04", name: "Mác Tem Nhãn Bánh Kẹo", img: "../images/products/anh-sp-in-tem-nhan-banh-keo-400x400.jpg", price: 900 },
-    { id: "ms05", name: "Mác Decal Giấy", img: "../images/products/decal-giay-08-800x800-1.png", price: 700 },
-    { id: "ms06", name: "Mác Decal Giá Rẻ", img: "../images/products/in-decal-dan-gia-re.jpg", price: 600 },
-    { id: "ms07", name: "Mác Nhãn Hiệu", img: "../images/products/in-decal-nhan-hieu-2.jpg", price: 2500 },
-    { id: "ms08", name: "Mác Đĩa DVD", img: "../images/products/in-nhan-dvd-gia-re-400x400.jpg", price: 1000 },
-    { id: "ms09", name: "Mác Cao Cấp", img: "../images/products/in-nhan-dvd-gia-re.jpg", price: 4500 },
-    { id: "ms10", name: "Mác Sản Phẩm Tiêu Chuẩn", img: "../images/products/2-400x400.png", price: 500 }
+    { id: "bt01", name: "Bao Thư Mẫu M04", img: "../images/products/c5_1.webp", price: 1000 },
+    { id: "bt02", name: "Bao Thư Mẫu M03", img: "../images/products/c4_1.webp", price: 1200 }
   ];
 
   var grid = document.getElementById("thiepGrid");

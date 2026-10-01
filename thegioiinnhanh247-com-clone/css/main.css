@@ -230,7 +230,7 @@ button { font-family: inherit; cursor: pointer; }
   left: 50%;
   transform: translateX(-50%);
   width: max-content;
-  max-width: 860px;
+  max-width: 900px;
   display: none;
   grid-template-columns: repeat(5, minmax(148px, 1fr));
   gap: 4px 28px;
@@ -320,7 +320,7 @@ button { font-family: inherit; cursor: pointer; }
 .hero-col,
 .promo-col { padding: 0 9.8px 19.6px; }
 .sidebar-col { flex: 0 1 20%; max-width: 20%; display: flex; flex-direction: column; align-self: stretch; }
-.hero-col { flex: 0 1 58.3333%; max-width: 58.3333%; }
+.hero-col { flex: 0 1 58.3333%; max-width: 58.3333%; align-self: stretch; }
 .promo-col { flex: 0 1 21.5%; max-width: 21.5%; }
 
 .sidebar-box {
@@ -370,7 +370,9 @@ button { font-family: inherit; cursor: pointer; }
 
 .hero-col img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .promo-col { display: flex; flex-direction: column; }
 .promo-col .promo-item { position: relative; display: block; margin: 0 -1px; }
