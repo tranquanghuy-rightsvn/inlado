@@ -438,8 +438,7 @@
   if (localStorage.getItem(TOUR_KEY)) return;
 
   var filterBoxes = document.querySelectorAll(".filter-sidebar .filter-box");
-  var resultTarget = document.getElementById("shopMeta") || document.getElementById("thiepGrid");
-  if (!filterBoxes.length || !resultTarget) return;
+  if (!filterBoxes.length) return;
 
   var steps = [
     {
@@ -456,11 +455,6 @@
       el: filterBoxes[2],
       title: "Bước 3: Chọn mức giá",
       desc: "Tick vào mức giá phù hợp với ngân sách để thu hẹp kết quả tìm kiếm."
-    },
-    {
-      el: resultTarget,
-      title: "Bước 4: Xem kết quả",
-      desc: "Danh sách mẫu thiệp phù hợp với bộ lọc bạn vừa chọn sẽ hiển thị ngay tại đây."
     }
   ];
 
