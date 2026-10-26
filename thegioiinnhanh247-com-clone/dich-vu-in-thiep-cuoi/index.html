@@ -552,8 +552,8 @@
   }
 
   function goToStep() {
-    steps[current].el.scrollIntoView({ behavior: "smooth", block: "center" });
-    window.setTimeout(placeStep, 300);
+    steps[current].el.scrollIntoView({ behavior: "auto", block: "center" });
+    placeStep();
   }
 
   function startTour() {
