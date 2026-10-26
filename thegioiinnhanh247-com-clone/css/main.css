@@ -800,11 +800,11 @@ button { font-family: inherit; cursor: pointer; }
   color: #6b5a00;
 }
 
-.hours-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.hours-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
 .hours-btn {
-  flex: 1 1 auto;
+  flex: 0 0 auto;
   text-align: center;
-  padding: 11px 16px;
+  padding: 10px 24px;
   border-radius: 999px;
   background: var(--brand-dark);
   color: #fff;
