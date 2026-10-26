@@ -140,38 +140,50 @@
         <div class="contact-info-card">
           <svg viewBox="0 0 24 24"><path d="M2 4h20v16H2V4zm2 2.4V18h16V6.4l-8 5.6-8-5.6zm.8-.4L12 9.6 19.2 4H4.8z"/></svg>
           <h4>Email</h4>
-          <a href="mailto:inlado.danang@gmail.com">inlado.danang@gmail.com</a>
+          <a href="mailto:inlado2013@gmail.com">inlado2013@gmail.com</a>
         </div>
         <div class="contact-info-card">
           <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 5v5.4l4 2.4-.8 1.4L11 13V7h2z"/></svg>
           <h4>Giờ làm việc</h4>
-          <p>Thứ 2 - Chủ nhật: 7h30 - 20h00</p>
+          <p>Thứ 2 - Thứ 7: Sáng 9h00 - 12h00, Chiều 14h00 - 19h30</p>
         </div>
       </div>
 
       <div class="contact-grid">
-        <div class="contact-form">
-          <h2>Gửi yêu cầu báo giá</h2>
-          <form id="contact-form" onsubmit="return false;">
-            <div class="field">
-              <label for="cf-name">Họ và tên</label>
-              <input type="text" id="cf-name" name="name" placeholder="Nhập họ và tên" required>
+        <div class="contact-hours">
+          <h2>Giờ làm việc</h2>
+          <div class="hours-card">
+            <div class="hours-card-top">
+              <span class="hours-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 5v5.4l4 2.4-.8 1.4L11 13V7h2z"/></svg>
+              </span>
+              <div>
+                <strong class="hours-brand">IN LÁ ĐỎ</strong>
+                <p class="hours-address">61 Trần Cao Vân - Thanh Khê - Đà Nẵng</p>
+              </div>
             </div>
-            <div class="field">
-              <label for="cf-phone">Số điện thoại</label>
-              <input type="tel" id="cf-phone" name="phone" placeholder="Nhập số điện thoại" required>
+
+            <div class="hours-schedule">
+              <div class="hours-row">
+                <span class="hours-day">Thứ 2 &ndash; Thứ 7</span>
+                <span class="hours-time">
+                  <span>Sáng: 9h00 &ndash; 12h00</span>
+                  <span>Chiều: 14h00 &ndash; 19h30</span>
+                </span>
+              </div>
+              <div class="hours-row">
+                <span class="hours-day">Chủ nhật</span>
+                <span class="hours-time"><span>Chỉ làm buổi sáng</span></span>
+              </div>
             </div>
-            <div class="field">
-              <label for="cf-email">Email</label>
-              <input type="email" id="cf-email" name="email" placeholder="Nhập địa chỉ email">
+
+            <p class="hours-note">Ngoài khung giờ trên, vui lòng gọi điện trước nha</p>
+
+            <div class="hours-actions">
+              <a href="tel:0935680939" class="hours-btn">0935.680.939 <small>(Zalo/FB)</small></a>
+              <a href="tel:0823782668" class="hours-btn hours-btn-outline">0823.78.2668 <small>(Zalo)</small></a>
             </div>
-            <div class="field">
-              <label for="cf-message">Nội dung</label>
-              <textarea id="cf-message" name="message" placeholder="Bạn đang cần in ấn sản phẩm gì? Số lượng bao nhiêu?"></textarea>
-            </div>
-            <button type="submit">Gửi yêu cầu</button>
-            <p class="contact-form-note" id="contact-form-note">Cảm ơn bạn đã liên hệ! In Lá Đỏ sẽ phản hồi trong thời gian sớm nhất.</p>
-          </form>
+          </div>
         </div>
         <div class="contact-map">
           <h2>Bản đồ</h2>
@@ -243,12 +255,5 @@
 </div>
 
 <script src="../js/main.js"></script>
-<script>
-  document.getElementById("contact-form").addEventListener("submit", function (e) {
-    e.preventDefault();
-    document.getElementById("contact-form-note").classList.add("is-visible");
-    this.reset();
-  });
-</script>
 </body>
 </html>

@@ -132,10 +132,10 @@
           <div class="filter-box">
             <div class="filter-box-title">Mẫu thiệp</div>
             <label class="checkbox-item"><input type="checkbox" name="loai" value="thiet-ke" checked> Hàng thiết kế riêng</label>
-            <label class="checkbox-item"><input type="checkbox" name="loai" value="co-san" checked> Hàng có sẵn</label>
-            <label class="checkbox-item"><input type="checkbox" name="loai" value="cao-cap" checked> Thiệp cao cấp</label>
-            <label class="checkbox-item"><input type="checkbox" name="loai" value="hashtag-cam-tay" checked> Hashtag cầm tay</label>
-            <label class="checkbox-item"><input type="checkbox" name="loai" value="bang-tong-cuoi" checked> Bảng tổng cưới</label>
+            <label class="checkbox-item"><input type="checkbox" name="loai" value="co-san"> Hàng có sẵn</label>
+            <label class="checkbox-item"><input type="checkbox" name="loai" value="cao-cap"> Thiệp cao cấp</label>
+            <label class="checkbox-item"><input type="checkbox" name="loai" value="hashtag-cam-tay"> Hashtag cầm tay</label>
+            <label class="checkbox-item"><input type="checkbox" name="loai" value="bang-tong-cuoi"> Bảng tổng cưới</label>
           </div>
           <div class="filter-box">
             <div class="filter-box-title">Bao bì</div>
@@ -340,7 +340,7 @@
     var biParam = params.get("bi");
     var bi = biParam ? biParam.split(",").filter(Boolean) : BI_KEYS.slice();
     var loaiParam = params.get("loai");
-    var loai = loaiParam ? loaiParam.split(",").filter(Boolean) : ["thiet-ke", "co-san", "cao-cap", "hashtag-cam-tay", "bang-tong-cuoi"];
+    var loai = loaiParam ? loaiParam.split(",").filter(Boolean) : ["thiet-ke"];
     var giaParam = params.get("gia");
     var gia = giaParam ? giaParam.split(",").filter(Boolean) : GIA_KEYS.slice();
     return { bi: bi, loai: loai, gia: gia };
@@ -420,13 +420,158 @@
   });
 
   resetBtn.addEventListener("click", function () {
-    state = { bi: BI_KEYS.slice(), loai: ["thiet-ke", "co-san", "cao-cap", "hashtag-cam-tay", "bang-tong-cuoi"], gia: GIA_KEYS.slice() };
+    state = { bi: BI_KEYS.slice(), loai: ["thiet-ke"], gia: GIA_KEYS.slice() };
     applyStateToUI();
     onFilterChange();
   });
 
   applyStateToUI();
   render();
+})();
+</script>
+
+<script>
+(function () {
+  "use strict";
+
+  var TOUR_KEY = "inlado_thiepcuoi_tour_v1";
+  if (localStorage.getItem(TOUR_KEY)) return;
+
+  var filterBoxes = document.querySelectorAll(".filter-sidebar .filter-box");
+  var resultTarget = document.getElementById("shopMeta") || document.getElementById("thiepGrid");
+  if (!filterBoxes.length || !resultTarget) return;
+
+  var steps = [
+    {
+      el: filterBoxes[0],
+      title: "Bước 1: Chọn mẫu thiệp",
+      desc: "Tick vào ô \"Mẫu thiệp\" bạn muốn tìm, ví dụ Hàng thiết kế riêng, Hàng có sẵn, Thiệp cao cấp..."
+    },
+    {
+      el: filterBoxes[1],
+      title: "Bước 2: Chọn bao bì",
+      desc: "Tick chọn Có bì hoặc Không bì tùy theo nhu cầu của bạn."
+    },
+    {
+      el: filterBoxes[2],
+      title: "Bước 3: Chọn mức giá",
+      desc: "Tick vào mức giá phù hợp với ngân sách để thu hẹp kết quả tìm kiếm."
+    },
+    {
+      el: resultTarget,
+      title: "Bước 4: Xem kết quả",
+      desc: "Danh sách mẫu thiệp phù hợp với bộ lọc bạn vừa chọn sẽ hiển thị ngay tại đây."
+    }
+  ];
+
+  var current = 0;
+  var overlay, highlight, tooltip;
+  var repositionHandler;
+
+  function finishTour() {
+    localStorage.setItem(TOUR_KEY, "1");
+    closeTour();
+  }
+
+  function closeTour() {
+    window.removeEventListener("resize", repositionHandler);
+    window.removeEventListener("scroll", repositionHandler, true);
+    [overlay, highlight, tooltip].forEach(function (node) {
+      if (node && node.parentNode) node.parentNode.removeChild(node);
+    });
+  }
+
+  function placeStep() {
+    var step = steps[current];
+    var rect = step.el.getBoundingClientRect();
+    var pad = 8;
+
+    highlight.style.top = (rect.top - pad) + "px";
+    highlight.style.left = (rect.left - pad) + "px";
+    highlight.style.width = (rect.width + pad * 2) + "px";
+    highlight.style.height = (rect.height + pad * 2) + "px";
+
+    var dots = steps.map(function (s, i) {
+      return "<span class='tour-dot" + (i === current ? " is-active" : "") + "'></span>";
+    }).join("");
+
+    tooltip.innerHTML =
+      "<span class='tour-step-label'>Bước " + (current + 1) + "/" + steps.length + "</span>" +
+      "<h4>" + step.title + "</h4>" +
+      "<p>" + step.desc + "</p>" +
+      "<div class='tour-tooltip-actions'>" +
+        "<button type='button' class='tour-skip' id='tourSkip'>Bỏ qua</button>" +
+        "<div class='tour-nav'>" +
+          (current > 0 ? "<button type='button' class='tour-btn tour-btn-outline' id='tourPrev'>Quay lại</button>" : "") +
+          "<button type='button' class='tour-btn' id='tourNext'>" + (current === steps.length - 1 ? "Hoàn tất" : "Tiếp theo") + "</button>" +
+        "</div>" +
+      "</div>" +
+      "<div class='tour-dots'>" + dots + "</div>";
+
+    var tooltipWidth = tooltip.offsetWidth || 300;
+    var tooltipHeight = tooltip.offsetHeight || 160;
+    var gap = 16;
+    var top, left;
+
+    if (rect.right + gap + tooltipWidth < window.innerWidth) {
+      left = rect.right + gap;
+      top = Math.min(Math.max(rect.top, 16), window.innerHeight - tooltipHeight - 16);
+    } else if (rect.bottom + gap + tooltipHeight < window.innerHeight) {
+      top = rect.bottom + gap;
+      left = Math.min(Math.max(rect.left, 16), window.innerWidth - tooltipWidth - 16);
+    } else if (rect.top - gap - tooltipHeight > 0) {
+      top = rect.top - gap - tooltipHeight;
+      left = Math.min(Math.max(rect.left, 16), window.innerWidth - tooltipWidth - 16);
+    } else {
+      left = Math.max(16, rect.left - gap - tooltipWidth);
+      top = Math.min(Math.max(rect.top, 16), window.innerHeight - tooltipHeight - 16);
+    }
+
+    tooltip.style.top = top + "px";
+    tooltip.style.left = left + "px";
+
+    document.getElementById("tourSkip").addEventListener("click", finishTour);
+    document.getElementById("tourNext").addEventListener("click", function () {
+      if (current === steps.length - 1) { finishTour(); return; }
+      current++;
+      goToStep();
+    });
+    var prevBtn = document.getElementById("tourPrev");
+    if (prevBtn) {
+      prevBtn.addEventListener("click", function () {
+        current--;
+        goToStep();
+      });
+    }
+  }
+
+  function goToStep() {
+    steps[current].el.scrollIntoView({ behavior: "smooth", block: "center" });
+    window.setTimeout(placeStep, 300);
+  }
+
+  function startTour() {
+    overlay = document.createElement("div");
+    overlay.className = "tour-overlay";
+    highlight = document.createElement("div");
+    highlight.className = "tour-highlight";
+    tooltip = document.createElement("div");
+    tooltip.className = "tour-tooltip";
+
+    document.body.appendChild(overlay);
+    document.body.appendChild(highlight);
+    document.body.appendChild(tooltip);
+
+    repositionHandler = function () { placeStep(); };
+    window.addEventListener("resize", repositionHandler);
+    window.addEventListener("scroll", repositionHandler, true);
+
+    goToStep();
+  }
+
+  window.addEventListener("load", function () {
+    window.setTimeout(startTour, 500);
+  });
 })();
 </script>
 </body>
