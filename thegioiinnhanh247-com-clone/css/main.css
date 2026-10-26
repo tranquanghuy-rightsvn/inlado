@@ -1233,6 +1233,16 @@ button { font-family: inherit; cursor: pointer; }
 }
 .tour-tooltip h4 { margin: 0 0 8px; font-size: 15.5px; color: var(--brand-dark); }
 .tour-tooltip p { margin: 0 0 16px; font-size: 13.5px; color: var(--text-dark); line-height: 1.5; }
+.tour-dontshow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 16px;
+  font-size: 12.5px;
+  color: #767676;
+  cursor: pointer;
+}
+.tour-dontshow input { margin: 0; cursor: pointer; }
 .tour-tooltip-actions { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .tour-skip { border: 0; background: none; color: #888; font-size: 13px; cursor: pointer; padding: 6px 4px; }
 .tour-skip:hover { color: var(--brand-dark); }

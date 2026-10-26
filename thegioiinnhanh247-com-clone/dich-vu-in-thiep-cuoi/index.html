@@ -459,11 +459,16 @@
   ];
 
   var current = 0;
+  var dontShowAgain = false;
   var overlay, highlight, tooltip;
   var repositionHandler;
 
   function finishTour() {
-    localStorage.setItem(TOUR_KEY, "1");
+    if (dontShowAgain) {
+      localStorage.setItem(TOUR_KEY, "1");
+    } else {
+      localStorage.removeItem(TOUR_KEY);
+    }
     closeTour();
   }
 
@@ -493,6 +498,10 @@
       "<span class='tour-step-label'>Bước " + (current + 1) + "/" + steps.length + "</span>" +
       "<h4>" + step.title + "</h4>" +
       "<p>" + step.desc + "</p>" +
+      "<label class='tour-dontshow'>" +
+        "<input type='checkbox' id='tourDontShow'" + (dontShowAgain ? " checked" : "") + ">" +
+        "Không hiển thị lại" +
+      "</label>" +
       "<div class='tour-tooltip-actions'>" +
         "<button type='button' class='tour-skip' id='tourSkip'>Bỏ qua</button>" +
         "<div class='tour-nav'>" +
@@ -524,6 +533,9 @@
     tooltip.style.top = top + "px";
     tooltip.style.left = left + "px";
 
+    document.getElementById("tourDontShow").addEventListener("change", function () {
+      dontShowAgain = this.checked;
+    });
     document.getElementById("tourSkip").addEventListener("click", finishTour);
     document.getElementById("tourNext").addEventListener("click", function () {
       if (current === steps.length - 1) { finishTour(); return; }
